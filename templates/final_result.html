@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArthoMate</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footerHeader.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/final.css') }}"
+    />
+  </head>
+  <body style="height: 100vh">
+    <header>
+      <a href="/"><h1>ArthoMate</h1></a>
+      <ul>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </header>
+    <!-- Main Section -->
+    <main>
+      <!-- Results Section -->
+      <div class="results">
+        <p>Model prediction: <span class="prediction">{{model}}</span></p>
+        <p>Doctor value: <span class="value">{{doctor}}</span></p>
+        {% if model == doctor %}
+        <p class="feedback">
+          Final Feedback: You are affected by knee osteoarthritis. Now you are
+          in Stage {{doctor}}.
+        </p>
+        {% else %}
+        <p class="feedback">
+          Final Feedback: Here doctor value is contradicting with model
+          prediction value. So, better to take MRI scan for more clarification.
+        </p>
+        {% endif %}
+      </div>
+    </main>
+    <footer>&copy; ArthoMate. All rights reserved.</footer>
+  </body>
+</html>

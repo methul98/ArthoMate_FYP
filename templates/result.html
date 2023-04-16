@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArthoMate</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footerHeader.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/result.css') }}"
+    />
+    <script src="{{ url_for('static', filename='javascript/viewer.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/open3d/0.12.0/Open3D.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.136.0/build/three.min.js"></script>
+  </head>
+  <body style="height: 100vh">
+    <header>
+      <a href="/"><h1>ArthoMate</h1></a>
+      <ul>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </header>
+
+    <main class="main">
+      <div class="preview">
+        <div class="xrayImg">
+          <img
+            src="data:image/png;base64,{{ img_data|safe }}"
+            alt="Image 1"
+            width="400px"
+            height="400px"
+          />
+          <h2>XRAY IMAGE</h2>
+        </div>
+        <div class="prevButton">
+          <button type="submit" onclick="preview()">Preview</button><br /><br />
+          <a href="{{ url_for('download') }}" download
+            ><button type="submit">Download</button></a
+          >
+        </div>
+      </div>
+      <div class="result">
+        <h2>Final Result Comparison</h2>
+        <form action="/final_result" method="POST">
+          <label for="ModelResult">The Model Result:</label><br />
+          <input
+            type="text"
+            id="ModelResult"
+            name="ModelResult"
+            value="{{result}}"
+          /><br /><br /><br />
+
+          <label for="DoctorResult">Doctor Result:</label><br />
+          <input
+            type="text"
+            id="DoctorResult"
+            name="DoctorResult"
+          /><br /><br /><br />
+
+          <button type="submit">Compare</button>
+        </form>
+      </div>
+    </main>
+    <footer>&copy; ArthoMate. All rights reserved.</footer>
+    <script>
+      function preview() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/preview");
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>

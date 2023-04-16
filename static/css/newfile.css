@@ -1,0 +1,55 @@
+ul.myol {
+  display: table;
+  text-align: center;
+  font-size: 25px;
+  color: black;
+}
+
+ul.mydiv {
+  font-size: 20px;
+}
+h1 {
+  text-align: center;
+  color: #4caf50;
+  font-size: 36px;
+}
+h2 {
+  text-align: center;
+  font-size: 34px;
+  color: #4caf50;
+}
+p {
+  text-align: center;
+  font-size: 25px;
+  line-height: 0.5;
+}
+a {
+  text-align: right;
+  font-size: 20px;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.team {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.team li {
+  list-style: none;
+  text-align: left;
+}
+
+@media screen and (max-width: 880px) {
+  .team {
+    display: block;
+  }
+}

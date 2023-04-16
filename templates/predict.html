@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArthoMate</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/footerHeader.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/predict.css') }}"
+    />
+    <script>
+      function previewImage(event) {
+        var preview = document.getElementById("preview");
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onloadend = function () {
+          preview.style.backgroundImage = "url(" + reader.result + ")";
+        };
+        if (file) {
+          reader.readAsDataURL(file);
+        } else {
+          preview.style.backgroundImage = "";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>ArthoMate</h1></a>
+      <ul>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </header>
+    <main class="main" style="margin-bottom: 10%">
+      <h1>Upload XRAY Image</h1>
+      <form action="/result" method="POST" enctype="multipart/form-data">
+        <input
+          style="margin-left: 50px"
+          type="file"
+          id="imageInput"
+          name="uploadImage"
+          onchange="previewImage(event)"
+        /><br /><br />
+        <div class="show"><div id="preview"></div></div>
+        <br /><br />
+        <button type="submit">Get Result</button>
+      </form>
+    </main>
+    <footer>&copy; ArthoMate. All rights reserved.</footer>
+  </body>
+</html>

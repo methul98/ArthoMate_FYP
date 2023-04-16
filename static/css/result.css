@@ -1,0 +1,57 @@
+.main {
+  margin: 3%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.prevButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+img {
+  border: 1px solid black;
+}
+
+.preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h2 {
+  text-align: center;
+  color: #4caf50;
+}
+
+.result {
+  text-align: center;
+  margin-top: 15%;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  text-align: center;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .preview {
+    display: block;
+  }
+
+  .prevButton {
+    display: block;
+  }
+
+  .xrayImg img {
+    width: 60vw;
+    margin-left: 15vw;
+  }
+}
