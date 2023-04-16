@@ -11,3 +11,4 @@ tensorflow==2.9.0
 keras==2.9.0
 scikit-learn==1.2.2
 xgboost==1.7.5
+pymongo
