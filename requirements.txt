@@ -1,6 +1,5 @@
 jinja2==3.1.2
 Flask==2.0.3
-werkzeugh==2.2.3
 Pillow==9.5.0
 numpy==1.23.5
 pandas==2.0.0
