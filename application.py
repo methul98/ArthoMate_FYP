@@ -11,7 +11,7 @@ import subprocess
 
 
 application=app=Flask(__name__)
-app=application
+app=application 
 app.secret_key = 'ArthoMate'
 
 # Add the b64encode filter to the Jinja2 environment
