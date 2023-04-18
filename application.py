@@ -90,3 +90,6 @@ def preview():
     pcd = o3d.io.read_point_cloud(file_path)
     o3d.visualization.draw_geometries([pcd])
     return ''
+
+if __name__ == "__main__":
+    app.run(host='127.0.0.1', port=8000, debug=True)
