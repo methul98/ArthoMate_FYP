@@ -10,7 +10,7 @@ import math
 import subprocess
 
 
-application=app=Flask(__name__)
+application=Flask(__name__)
 app=application 
 app.secret_key = 'ArthoMate'
 
